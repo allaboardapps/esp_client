@@ -10,7 +10,7 @@ class SubmissionBatch
       payload = {
         "submission_name" => name,
         "submission_type" => type,
-        "save_extracted_metadata", => true
+        "save_extracted_metadata" => true
       }
 
       client = RequestClient.new(payload, uri, @token)
