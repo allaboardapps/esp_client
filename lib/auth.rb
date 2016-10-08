@@ -30,10 +30,8 @@ class Auth
     end
   end
 
-  private
-
   def self.create_request(uri, data)
-    request . Net::HTTP::Post.new(uri)
+    request = Net::HTTP::Post.new(uri)
     request.add_field "Content-Type", "application/x-www-form-urlencoded; charset=UTF-8"
     request.body = URI.encode_www_form(data)
     return request

@@ -15,7 +15,8 @@ require "contribution"
 CREDENTIALS = YAML.load_file("authentication.yml")
 
 puts "Obtaining Getty OAuth2 token..."
-token = Auth.token
+# token = Auth.token
+token = CREDENTIALS["current_token"]
 
 puts "Creating Submission Batch..."
 submission_batch = SubmissionBatch.new(token)

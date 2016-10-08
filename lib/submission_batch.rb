@@ -5,7 +5,8 @@ class SubmissionBatch
 
   def create(name, type)
     begin
-      uri = URI("#{CREDENTIALS['base_uri']}/submissions/v1/submission_batches")
+      uri = URI("#{CREDENTIALS['base_uri']}/submission/v1/submission_batches")
+      # uri = URI("#{CREDENTIALS['base_uri']}/submission/v1/keywords/getty?keywords=athlete&media_type=image")
 
       payload = {
         "submission_name" => name,
@@ -14,7 +15,9 @@ class SubmissionBatch
       }
 
       client = RequestClient.new(payload, uri, @token)
+      # client = RequestClient.new(nil, uri, @token)
       response = client.post
+      # response = client.get
 
       if response.code == "201"
         json_response = JSON.parse(response.body, symbolize_names: true)
